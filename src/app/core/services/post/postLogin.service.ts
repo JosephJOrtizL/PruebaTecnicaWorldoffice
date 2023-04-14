@@ -28,10 +28,9 @@ export class PostLoginService {
             localStorage.setItem('isLogged','true')
           },
           (error) => {
-            console.log('error',error);
             if(error.statusText === 'OK'){
               localStorage.setItem('isLogged','true')
-              this.$alert.set({alert:"custom-success",custommsg:'Login Exitoso',closingAftter:115000, isloading:false});
+              this.$alert.set({alert:"custom-success",custommsg:'Login Exitoso',closingAftter:5000, isloading:false});
               this.router.navigate(['/equipos']);
             }else{
               this.$alert.set({alert:"error",custommsg:'Algo salio mal, por favor intente de nuevo',closingAftter:5000, isloading:false});

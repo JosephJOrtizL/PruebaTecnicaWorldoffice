@@ -33,7 +33,6 @@ export class PostAddTeamService {
         'capacidad': props.capacity,
         'valor': props.value
     }
-    console.log('el boyd ', body);
     setTimeout(() => {
       this.http
           .post(environment.serverUrl + 'equipos/crear',
@@ -64,7 +63,6 @@ export class PostAddTeamService {
         'capacidad': props.capacity,
         'valor': props.value
     }
-    console.log('el boyd ', body);
     setTimeout(() => {
       this.http
           .put(environment.serverUrl + `equipos/actualizar/${props.id}`,

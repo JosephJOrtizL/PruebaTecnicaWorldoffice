@@ -35,7 +35,6 @@ export class GetTeamsService {
             this.$teams.set({teams:setTeamsDTO(res?.content), isArray:true ,isLoading:false})
           },
           (error) => {
-            console.log(error);
           }
         );
     }, 0);
@@ -50,7 +49,6 @@ export class GetTeamsService {
             )
           .subscribe(
             (res: any) => {
-              console.log(res);
               this.$teams.set({team:{
                 name: res?.nombre??'',
                 nationality: res?.nacionalidad??'',
@@ -66,7 +64,6 @@ export class GetTeamsService {
               isLoading:false})
             },
             (error) => {
-              console.log(error);
               this.$teams.set({
                 teams:[],
                 team:{},
@@ -89,11 +86,9 @@ export class GetTeamsService {
             )
           .subscribe(
             (res: any) => {
-              console.log(res);
               this.$teams.set({teams:setTeamsDTO(res), isArray:true ,isLoading:false})
             },
             (error) => {
-              console.log(error);
             }
           );
       }, 0);

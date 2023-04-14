@@ -28,9 +28,7 @@ export class TeamsComponent implements OnInit, OnDestroy {
             this.teamsArray.push(data?.team!);
           }
         }
-        this.isLoading = data?.isLoading ?? false;
-        console.log(this.teamsArray);
-        
+        this.isLoading = data?.isLoading ?? false;        
       })
     )
   }
