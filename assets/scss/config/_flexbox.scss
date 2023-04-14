@@ -1,0 +1,40 @@
+$dflexs: flex, inline-flex, block, inline-block, grid, none;
+@each $dflex in $dflexs {
+   .d-#{$dflex} {
+      display: $dflex;
+   }
+}
+
+// media query for directions
+@include mq-min(desktop) {
+   $directions: row, row-reverse, column, column-reverse;
+   @each $dir in $directions {
+      .fd-d-#{$dir} {
+         flex-direction: $dir !important;
+      }
+   }
+}
+
+// Flex Flow Direction : applies to flex containers
+$directions: row, row-reverse, column, column-reverse;
+@each $dir in $directions {
+   .fd-#{$dir} {
+      flex-direction: $dir;
+   }
+}
+
+// Axis Alignment : applies to flex containers
+$justifys: flex-start, flex-end, center, space-between, space-around, space-evenly;
+@each $justify in $justifys {
+   .jc-#{$justify} {
+      justify-content: $justify;
+   }
+}
+
+// Cross-axis Alignment : applies to flex containers
+$aligns: flex-start, flex-end, center, baseline, stretch;
+@each $align in $aligns {
+   .ai-#{$align} {
+      align-items: $align;
+   }
+}
