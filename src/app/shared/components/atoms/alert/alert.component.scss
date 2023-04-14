@@ -1,0 +1,111 @@
+@import '/src/styles.scss'; 
+:root{
+  --dynamicPadding:60px;
+}
+.alertSection{
+  padding-top:var(--dynamicPadding);
+}
+.alertContainer{
+    position: fixed;
+    width: 100vw;
+    top: 3.5rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    &.displayOver{
+      z-index: 9999;
+    }
+  }
+
+.lineup-alert {  
+  align-items: center;
+  background: color(darkTheme,hover-select); 
+  border-radius: 8px;
+  display: flex;
+  gap: 17px;
+  padding: 22px 26px; 
+
+   &.isError{   
+    border: 2px solid color(darkTheme, alert-error);  
+    
+    
+   .closeButton{
+      border: 3px solid  color(darkTheme, alert-error);  
+      color:  color(darkTheme, alert-error);  
+    }
+    .mat-icon{
+        color: color(darkTheme, alert-error);        
+    }   
+    
+    .mat-icon-button.large {    
+      .mat-icon {
+        color: color(darkTheme, alert-error);        
+      }
+    }
+  }
+
+   &.success{   
+    border: 2px solid color(darkTheme, alert-sucess);   
+       
+    .closeButton{
+      border: 3px solid color(darkTheme, alert-sucess);  
+      color: color(darkTheme, alert-sucess);  
+    }   
+
+    .mat-icon {
+        color: color(darkTheme, alert-sucess);       
+    }
+
+    .mat-icon-button.large {
+     
+      .mat-icon {
+        color: color(darkTheme, alert-sucess);       
+      }
+    }
+
+   
+  }
+
+  & .lineup-alert__text{
+    color: #F4F4F4;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.03em;
+    margin: 0 35px 0 0;
+    width: 252px;
+  }  
+
+  .closeButton{
+      border: 3px solid color(theme1, text); 
+      color: color(theme1, text); 
+      background: transparent;    
+      // margin-top: 20px;
+      // font-size: 20px;
+      // padding: 5px 40px;     
+  }  
+  .mat-icon {
+        color: color(theme1, text); 
+    } 
+
+  .mat-icon-button.large {
+      .mat-icon {
+        color: color(theme1, text); 
+      }
+  }
+
+}
+
+@keyframes isError {
+  0%{
+   box-shadow: 0px 0px 0px color(darkTheme, alert-error);     
+  }
+  50% {
+    box-shadow: 0px 0px 18px color(darkTheme, alert-error);     
+  } 
+  100% {
+   box-shadow: 0px 0px 18px color(darkTheme, alert-error);     
+  }
+}
+

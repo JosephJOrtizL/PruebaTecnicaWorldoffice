@@ -1,0 +1,28 @@
+
+
+<header class="header" *ngIf="!this.isHidden">
+    <nav mat-tab-nav-bar class="nav navbar-left">
+       
+          <a mat-tab-link
+          *ngFor="let item of headerItems"
+          [routerLink]="item.link"
+          routerLinkActive #rla="routerLinkActive"
+          [active]="rla.isActive">
+          {{item?.label}}
+          </a>
+    </nav>
+    <div class="header__buttonsContainer d-flex ai-center navbar-right">
+        <img src="assets/images/Football_Ball.png" alt="" routerLink="/equipos">
+          <h3  class="header__text">            
+          FIFA!
+          </h3>
+          <button 
+          aria-label="change to theme2" 
+          mat-raised-button 
+          class="header__button theme2"
+          (click)="onLogout()"   
+          > 
+          Logout
+          </button>
+    </div>
+</header>

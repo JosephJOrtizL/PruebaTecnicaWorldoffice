@@ -1,0 +1,40 @@
+<div class="spinner" *ngIf="this.isLoading">
+  <div class="loading">
+    <h2>Cargando Equipos de Futbol</h2>
+    <mat-icon class="material-symbols-outlined">sports_soccer</mat-icon>
+  </div>
+</div>
+<div class="filters" [ngClass]="{
+  hide: isLoading
+}">
+  <app-fitlers></app-fitlers>
+</div>
+<section *ngIf="!this.isLoading">
+  <ng-container *ngIf="teamsArray.length>0">
+  <div class="grid-container">
+       <mat-card class="card" *ngFor="let team of teamsArray" (click)="this.onClickCard(team.id!)">
+          <mat-card-content class="content">
+            <mat-card-title class="card-title">{{ team.name }}</mat-card-title>
+            <mat-card-subtitle class="card-subtitle">{{ team.trainer }}</mat-card-subtitle>
+            <p><strong>Id:</strong> {{ team.id }}</p>
+            <p><strong>Sitio web:</strong> {{ team.webSite }}</p>
+            <p><strong>Nacionalidad:</strong> {{ team.nationality }}</p>
+            <p><strong>Año de Fundación:</strong> {{ team.founded }}</p>
+            <p><strong>Nombre del Estadio:</strong> {{ team.stadium }}</p>
+            <p><strong>Capacidad del Estadio:</strong> {{ team.capacity }}</p>
+            <p><strong>Valor en la bolsa:</strong> {{team.value | currency:'USD':true}}</p>
+          </mat-card-content>
+          <mat-card-actions class="actions">
+            <button mat-button>Actualizar</button>
+            <app-delete-button class="trash" [id]="team.id!"></app-delete-button>
+          </mat-card-actions>
+        </mat-card>   
+      </div>
+    </ng-container>
+</section>
+
+  <ng-container *ngIf="!this.isLoading && teamsArray.length==0">
+    <app-no-results></app-no-results>
+  </ng-container>
+
+  

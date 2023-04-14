@@ -1,0 +1,52 @@
+@import '/src/styles.scss'; 
+  .modal-header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-header h2 {
+    color: color(darkTheme,title);
+    margin: 0;
+  }
+  
+  .modal-body {
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .modal-footer {
+    padding: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+  }
+  .btn-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    color: color(darkTheme,alert-error);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-cancel {
+    background-color: color(darkTheme,alert-error);
+  }
+  
+  .btn-confirm {
+    background-color: color(theme2,bg);
+  }

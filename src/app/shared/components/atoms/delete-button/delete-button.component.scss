@@ -1,0 +1,19 @@
+@import '/src/styles.scss'; 
+.trash{
+    display: flex;
+    cursor: pointer;
+    background-color: color(darkTheme,alert-error);
+    color: color(theme1,bg);
+    border: 2px solid color(darkTheme,alert-error);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    .delete-icon {
+      &mat-icon{
+        font-size: 24px;
+      }
+    }
+  }

@@ -1,0 +1,72 @@
+<div class="search-bar">
+    <div class="search-bar-inputs">
+        <h2>Filtrar por fecha</h2>
+      <mat-form-field class="search-bar-date-picker">
+        <mat-label>Fecha de inicio</mat-label>
+        <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="search-bar-date-picker">
+        <mat-label>Fecha de fin</mat-label>
+        <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" class="search-bar-button" (click)="onSearchDate()">Buscar</button>
+    <div class="search-bar-inputs">
+        <h2>Busqueda por ID</h2>
+      <mat-form-field class="search-bar-input">
+        <input matInput placeholder="Buscar" [(ngModel)]="searchQuery" type="number" noSpinners>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" class="search-bar-button" (click)="onSearch()">Buscar</button>
+    <div class="clearfilter" >
+        <button mat-raised-button color="secondary" class="search-bar-button secondary" (click)="onClear()"
+        [ngClass]="{
+            hide: !this.isShowingClear
+          }"
+        >X Lipiar Filtros</button>
+    </div>
+</div>
+
+<div class="toggle">
+    <mat-toolbar color="primary">
+        <span>Consulta un equipo en especifico</span>
+        <button mat-icon-button (click)="toggleMenu()">
+          <mat-icon *ngIf="!isMenuOpen">arrow_drop_down</mat-icon>
+          <mat-icon *ngIf="isMenuOpen">arrow_drop_up</mat-icon>
+        </button>
+    </mat-toolbar>
+</div>
+  <div class="mobile-menu" [ngClass]="{ 'mobile-menu--open': isMenuOpen }">
+    <div class="mobile-menu__content">
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de inicio</mat-label>
+        <input matInput [matDatepicker]="startDatePickerM" [(ngModel)]="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startDatePickerM"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePickerM></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha final</mat-label>
+        <input matInput [matDatepicker]="endDatePickerM" [(ngModel)]="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endDatePickerM"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePickerM></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onSearchDate()">Buscar</button>
+      <div class="mobile-menu__divider"></div>
+      <mat-form-field appearance="fill">
+        <mat-label>Filtrar por Id</mat-label>
+        <input matInput type="number" [(ngModel)]="searchQuery">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onSearch()">Buscar</button>
+      <div class="clearfilter" >
+        <button mat-raised-button color="primary" class="secondary" (click)="onClear()"
+        [ngClass]="{
+            hide: !this.isShowingClear
+          }"
+        >X Lipiar Filtros</button>
+    </div>
+    </div>
+  </div>

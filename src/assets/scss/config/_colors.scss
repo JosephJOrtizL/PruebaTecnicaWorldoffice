@@ -1,0 +1,32 @@
+
+$colors: (
+      borders: (
+            blue: #8700FF,
+            green: #00FFBC
+      ),     
+      theme1:(
+            bg: #fdfdfd,
+            title: #2d235a,
+            subtitle: #3c3c55,
+            text:#57576b,
+            icon: #8278aa,  
+            shadow: #00000059,         
+      ),
+      theme2:(
+            bg: #640cb6,             
+            title: #ffffff,
+            subtitle: #ffffff,
+            text:#ffffff,
+            icon: #ffffff, 
+            shadow: #17c8bbad, 
+      ),
+      darkTheme: (
+            hover-cards:rgba(232,234,237,.04),
+            filter:rgba(235, 225, 236, 0.747),
+            hover-select: #444946,
+            alert-warning: #F0AD4E,
+            alert-error:#BB2124,
+            alert-sucess:#22BB33,
+            title:#d81b60
+          ),
+)

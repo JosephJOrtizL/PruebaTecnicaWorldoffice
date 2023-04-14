@@ -1,0 +1,51 @@
+@import '/src/styles.scss'; 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 100% !important;
+    background-image: url('/assets/images/stadium.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .form {
+    width:100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    .title{
+        display: inline-flex;
+        color: color(darkTheme,title);
+    }
+    .alignForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    }
+  }
+  
+  .fields {
+    width: 80%;
+  }
+  
+  .buttons {
+    text-align: center;
+    margin-top: 20px;
+    background-color: color(darkTheme,title);
+  }
+.spinner{
+  display: flex;
+  align-items: center;
+  & .mat-spinner {
+    margin-left: 1rem;
+  }
+}
+.spinner ::ng-deep .mat-progress-spinner circle,
+  .mat-spinner circle {
+    stroke: color(darkTheme,title) !important;
+  }

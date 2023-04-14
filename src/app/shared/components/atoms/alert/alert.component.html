@@ -1,0 +1,41 @@
+<div class="alertContainer"
+*ngIf="this.alertType.alert!= null"
+ [ngClass]="
+  {
+   displayOver: this.alertType.alert!= null
+  }"
+  (click)="this.closeAlert()"
+>
+  <div class="lineup-alert"
+  [ngClass]="
+  {
+   isError: this.alertType.alert === 'error',
+   success: this.alertType.alert==='custom-success'
+  }
+  "
+  >
+   <mat-icon class="material-icons-outlined">
+     {{ this.alertType.alert==='error'? 'error_outline': '' }}
+   </mat-icon>   
+  
+   <p class="lineup-alert__text">
+    {{
+       this.alertType.alert==='custom-success'?this.alertType?.custommsg:
+       this.alertType.alert==='error'?this.alertType?.custommsg:
+         ''
+    }}    
+   </p>
+   <button (click)="this.closeAlert() " class="large closeButton"  mat-icon-button>
+       <mat-icon>close</mat-icon>
+   </button>    
+   <span class="lineup-alert__border"></span>
+ </div>
+</div>
+<section
+
+class="alertSection"
+
+>
+
+<ng-content></ng-content>
+</section>

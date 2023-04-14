@@ -1,0 +1,70 @@
+<section class="container">
+    <mat-card class="form">
+        <mat-card-header class="title">
+          <mat-card-title><h2>{{dynamicText.title}}</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form #addTeamForm="ngForm" (ngSubmit)="onSubmit(addTeamForm)" class="alignForm" novalidate>
+            <mat-form-field class="fields">
+              <input matInput placeholder="Nombre" name="name" [(ngModel)]="team.name" required>
+              <mat-error *ngIf="addTeamForm.controls['name']?.errors?.required">
+                Nombre es requerido
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="fields">
+              <input matInput placeholder="Estadio" name="stadium" [(ngModel)]="team.stadium" required>
+              <mat-error *ngIf="addTeamForm.controls['stadium']?.errors?.required">
+                El estadio donde juegan es requerido
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="fields">
+              <input matInput placeholder="Sitio Web" name="website" [(ngModel)]="team.webSite">
+            </mat-form-field>
+            <mat-form-field class="fields">
+              <input matInput placeholder="Nacionalidad" name="nationality" [(ngModel)]="team.nationality" required>
+              <mat-error *ngIf="addTeamForm.controls['nationality']?.errors?.required">
+                La Nacionalidad es requerida
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de fundación" name="fecha" [(ngModel)]="team.founded" [max]="this.maxDate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="addTeamForm.controls['fecha']?.errors?.required">
+                  Fecha es requerida
+                </mat-error>
+                <mat-error *ngIf="addTeamForm.controls['fecha']?.errors?.futureDate">
+                  Fecha debe ser una fecha futura
+                </mat-error>
+              </mat-form-field>
+
+            <mat-form-field class="fields">
+              <input matInput placeholder="Entrenador" name="trainer" [(ngModel)]="team.trainer" required>
+              <mat-error *ngIf="addTeamForm.controls['trainer']?.errors?.required">
+                Nombre del entrenador es Requerido
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="fields">
+              <input matInput placeholder="Capacidad" name="capacity" [(ngModel)]="team.capacity" required>
+              <mat-error *ngIf="addTeamForm.controls['capacity']?.errors?.required">
+                La capacidad del estadio es requerida
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="fields">
+              <input matInput placeholder="Valor del Equipo" name="value" [(ngModel)]="team.value" type="number" required>
+              <mat-error *ngIf="addTeamForm.controls['value']?.errors?.required">
+                El valor del equipo es requerido
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button class="buttons" color="primary" type="submit" [disabled]="!addTeamForm.valid" *ngIf="!isLoading">{{dynamicText.buttonLabel}}</button>
+            <button mat-raised-button class="buttons" color="primary" type="submit" [disabled]="true" *ngIf="isLoading">
+              <div class="spinner">
+                <p>Cargando...</p>              
+                <mat-spinner diameter="20"></mat-spinner>
+              </div>
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+</section>

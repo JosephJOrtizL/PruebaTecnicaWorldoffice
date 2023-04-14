@@ -1,0 +1,125 @@
+@import '/src/styles.scss'; 
+
+.search-bar {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: color(darkTheme,filter);
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+  }
+
+  .search-bar-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    & h2{
+        color: color(darkTheme,title)
+    }
+  }
+  
+  .search-bar-date-picker {
+    margin-right: 10px;
+  }
+  
+  .search-bar-input {
+    flex: 1;
+    margin-right: 10px;
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+    }
+    input[type=number] { -moz-appearance:textfield; }
+  }
+  
+  .search-bar-button {
+    width: 120px;
+    height: 40px;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  .secondary{
+    background-color: color(darkTheme,title);
+    width: 100%;
+    max-width: 500px;
+  }
+  .clearfilter{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    .hide{
+        display: none;
+      }
+  }
+  .mobile-menu {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+    transition: transform 0.2s ease-out;
+    transform: translateY(-100%);
+    z-index: 2;
+  }
+  
+  .mobile-menu--open {
+    transform: translateY(0);
+    top:120px;
+  }
+  
+  .mobile-menu__content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-menu__divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.12);
+    margin: 16px 0;
+  }
+  .toggle{
+    display: block;
+    width: 100%;
+    }
+  @include mq-min(desktop){
+    .search-bar {  
+        display: flex;
+    }
+    .mobile-menu {
+        display: none;
+      }
+    .toggle{
+        display: none;
+    }
+    .clearfilter{
+        display: flex;
+        justify-content: end;
+        max-width: max-content;
+        margin-top: 0px;
+        // padding-top: 10px;
+        .hide{
+            display: none;
+          }
+      }
+    .secondary{
+        color:#fff;
+        background-color: color(darkTheme,title);
+      }
+  } 
+  @include mq-min(tablet){
+    .mobile-menu--open {
+        transform: translateY(0);
+        top:130px;
+      }
+  } 

@@ -1,0 +1,130 @@
+@import 'constants';
+@import 'mixins';
+@import 'colors';
+
+//base container
+.container{
+	max-width: 1430px;
+	margin: auto;
+	padding: 5rem 3rem;
+}
+
+//loader
+.loader{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+}
+
+%title {	
+	font-family: $font-primary;
+	font-size:  3.5rem;
+	font-weight: map-get($weights, black);
+	line-height: 3.9rem;
+	letter-spacing: 0.1rem;
+}
+
+%subtitle {	
+	font-family: $font-primary;
+	font-size:  2.1rem;
+	font-weight: map-get($weights, medium);
+	line-height: 2.4rem;
+	letter-spacing: .03rem;
+}
+
+%text {	
+	font-family: $font-primary;
+	font-size:  1.6rem;
+	font-weight: map-get($weights, regular);
+	line-height: 1.9rem;
+}
+
+
+
+//theme extends [ MODULE 1 ]
+%theme1-bg{ color: color(theme1, bg);} 
+%theme1-bg-bg{ background: color(theme1, bg);}
+%theme1-title{ color: color(theme1, title);}; 
+%theme1-title-bg{ background: color(theme1, title);}
+%theme1-subtitle{color: color(theme1, subtitle);}
+%theme1-subtitle-bg{background: color(theme1, subtitle);}
+%theme1-text{ color: color(theme1, text);} 
+%theme1-text-bg{ background: color(theme1, text);}
+%theme1-icon{ color: color(theme1, icon);}
+%theme1-icon-bg{ background: color(theme1, icon);}
+%theme1-shadow{ color:color(theme1, shadow);} 
+%theme1-shadow-bg{ background:color(theme1, shadow);}
+
+
+//theme extends [ MODULE 2 ]
+%theme2-bg{ color: color(theme2, bg);}
+%theme2-bg-bg{ background: color(theme2, bg);}
+%theme2-title{ color: color(theme2, title);}
+%theme2-title-bg{ background: color(theme2, title);}
+%theme2-subtitle{ color: color(theme2, subtitle);}
+%theme2-subtitle-bg{ background: color(theme2, subtitle);}
+%theme2-text{ color: color(theme2, text);}
+%theme2-text-bg{ background: color(theme2, text);}
+%theme2-icon{ color: color(theme2, icon);}
+%theme2-icon-bg{ background: color(theme2, icon);}
+%theme2-shadow{ color: color(theme2, shadow);}
+%theme2-shadow-bg{ background: color(theme2, shadow);}
+
+//theme grayscale
+%theme-black{ color: black;}
+%theme-black-bg{ background: black;}
+%theme-white{ color: white;}
+%theme-white-bg{ background: white;}
+%theme-transparent{ color: transparent;}
+%theme-transparent-bg{ background: transparent;}
+
+//theme gradient
+%theme-gradient-bg-animated{
+	background: linear-gradient(
+		60deg, 
+		color(borders, green),
+		color(borders, green),
+		color(borders, blue),
+		color(borders, green),
+		color(borders, blue),
+		color(borders, green),
+		color(borders, blue),
+		color(borders, green),
+		color(borders, green)
+		) ;
+      animation: animatedgradient 12s linear alternate infinite;
+      background-size: 600% 600%;
+}
+
+%theme-gradient-bg-static{
+	background:  linear-gradient(56deg, color(borders, blue)0%, color(borders, green) 100%) !important;
+}
+
+//Animations
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;		
+	}
+	25% {
+		background-position: 100% 50%;		
+	}
+	50% {
+		background-position: 0% 50%;		
+	}
+	75% {
+		background-position: 100% 50%;		
+	}
+	100% {
+		background-position: 0% 50%;		
+	}
+}
+
+
+@include mq-min(desktop){
+	%title {
+		font-size: 4.5rem;
+		line-height: 4.9rem;
+	}
+}

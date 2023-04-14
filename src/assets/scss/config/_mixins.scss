@@ -1,0 +1,34 @@
+// color mapping 
+@function color($color, $tone) {
+      @if map-has-key($colors, $color) {
+      $color: map-get($colors, $color);
+      @if map-has-key($color, $tone) {
+            $tone: map-get($color, $tone);
+            @return $tone;
+      }
+      }
+}
+
+// media query [desktop first]
+@mixin mq-min($breakpoint) {
+      @if map-has-key($breakpoints, $breakpoint) {
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+      @media (min-width: $breakpoint-value) {
+            @content;
+      }
+      } @else {
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+      }
+}
+
+// media query [mobile first]
+@mixin mq-max($breakpoint) {
+      @if map-has-key($breakpoints, $breakpoint) {
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+      @media (max-width: ($breakpoint-value - 1)) {
+            @content;
+      }
+      } @else {
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+      }
+}
